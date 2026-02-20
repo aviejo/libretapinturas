@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary - Warm Craft */
+  --color-primary-50: #FFF7ED;
+  --color-primary-100: #FFEDD5;
+  --color-primary-200: #FED7AA;
+  --color-primary-300: #FDBA74;
+  --color-primary-400: #FB923C;
+  --color-primary-500: #B45309;
+  --color-primary-600: #92400E;
+  --color-primary-700: #78350F;
+  --color-primary-800: #5D2C0A;
+  --color-primary-900: #451A03;
+  
+  /* Secondary - Deep Blue */
+  --color-secondary-50: #EFF6FF;
+  --color-secondary-100: #DBEAFE;
+  --color-secondary-200: #BFDBFE;
+  --color-secondary-300: #93C5FD;
+  --color-secondary-400: #60A5FA;
+  --color-secondary-500: #3B82F6;
+  --color-secondary-600: #2563EB;
+  --color-secondary-700: #1D4ED8;
+  --color-secondary-800: #1E40AF;
+  --color-secondary-900: #1E3A8A;
+  
+  /* Accent - Green Olive */
+  --color-accent-50: #F7FEE7;
+  --color-accent-100: #ECFCCB;
+  --color-accent-200: #D9F99D;
+  --color-accent-300: #BEF264;
+  --color-accent-400: #A3E635;
+  --color-accent-500: #84CC16;
+  --color-accent-600: #65A30D;
+  --color-accent-700: #4D7C0F;
+  --color-accent-800: #3F6212;
+  --color-accent-900: #365314;
+  
+  /* Background */
+  --color-background-main: #FAF7F2;
+  --color-background-card: #FFFFFF;
+  
+  /* Text */
+  --color-text-main: #2E2A27;
+  --color-text-muted: #6B635C;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #2E2A27;
+  background-color: #FAF7F2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  border-color: #E5E7EB;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #FAF7F2;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+/* Component Classes */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
+}
+
+.btn-primary {
+  background-color: #92400E;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #78350F;
+}
+
+.btn-secondary {
+  background-color: #2563EB;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #1D4ED8;
+}
+
+.btn-accent {
+  background-color: #65A30D;
+  color: white;
+}
+
+.btn-accent:hover {
+  background-color: #4D7C0F;
+}
+
+.btn-outline {
+  border: 2px solid #D1D5DB;
+  color: #374151;
+}
+
+.btn-outline:hover {
+  border-color: #B45309;
+  color: #92400E;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid #F3F4F6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #D1D5DB;
+  background-color: white;
+  color: #111827;
+}
+
+.input::placeholder {
+  color: #9CA3AF;
+}
+
+.input:focus {
+  border-color: #B45309;
+  box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.2);
+  outline: none;
+}
+
+.input-error {
+  border-color: #B91C1C;
+}
+
+.input-error:focus {
+  border-color: #B91C1C;
+  box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.2);
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background-color: #FFEDD5;
+  color: #92400E;
+}
+
+.badge-secondary {
+  background-color: #DBEAFE;
+  color: #1E40AF;
+}
+
+.badge-accent {
+  background-color: #ECFCCB;
+  color: #3F6212;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

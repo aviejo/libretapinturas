@@ -1,0 +1,35 @@
+# ============================================
+# Apache .htaccess - Database Protection
+# Protect SQLite database from web access
+# ============================================
+
+# Deny access to database directory
+RedirectMatch 404 ^/database/.*$
+
+# Deny access to SQLite database files
+<FilesMatch "\.(db|sqlite|sqlite3|db-journal|db-wal)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Deny access to environment files
+<FilesMatch "^\.env">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Deny access to sensitive directories
+RedirectMatch 404 ^/prisma/.*$
+RedirectMatch 404 ^/src/.*$
+RedirectMatch 404 ^/node_modules/.*$
+
+# ============================================
+# Additional Security Headers
+# ============================================
+<IfModule mod_headers.c>
+  # Prevent directory listing
+  Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes

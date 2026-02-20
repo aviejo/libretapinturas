@@ -1,0 +1,72 @@
+# ============================================
+# Apache .htaccess - Main Application Router
+# Routes requests between Frontend and Backend API
+# ============================================
+
+# Enable Rewrite Engine
+RewriteEngine On
+
+# ============================================
+# API ROUTES - Backend Node.js
+# ============================================
+# All requests to /api go to the Node.js backend (handled by Passenger)
+# Do not process these with frontend rewrite rules
+
+# Skip if already pointing to api directory
+RewriteRule ^api - [L]
+
+# ============================================
+# STATIC ASSETS - Serve directly
+# ============================================
+# If the request is for an existing file or directory, serve it directly
+# This includes JS, CSS, images, fonts, etc.
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# ============================================
+# FRONTEND ROUTES - React Router
+# ============================================
+# All other requests go to the React frontend
+# React Router will handle the client-side routing
+# This enables SPA (Single Page Application) behavior
+
+RewriteRule ^ index.html [L]
+
+# ============================================
+# Security Headers (Optional but recommended)
+# ============================================
+<IfModule mod_headers.c>
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # Enable XSS protection
+  Header always set X-XSS-Protection "1; mode=block"
+  
+  # Prevent clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Content Security Policy (adjust as needed)
+  # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# ============================================
+# Performance - Enable compression
+# ============================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# ============================================
+# Caching - Static assets
+# ============================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+</IfModule>

@@ -1,0 +1,29 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Paleta base -->
+  <path d="M256 64
+       C150 64 80 140 80 240
+       C80 340 160 420 256 420
+       C320 420 360 390 360 350
+       C360 320 335 300 305 300
+       L270 300
+       C245 300 230 285 230 265
+       C230 240 255 220 280 220
+       L310 220
+       C350 220 380 190 380 150
+       C380 100 330 64 256 64 Z" fill="#FFFFFF"></path>
+
+  <!-- Mancha 1 - Principal -->
+  <circle cx="190" cy="170" r="40" fill="#B45309"></circle>
+
+  <!-- Mancha 2 - Azul -->
+  <circle cx="280" cy="150" r="40" fill="#1E3A8A"></circle>
+
+  <!-- Mancha 3 - Verde -->
+  <circle cx="330" cy="240" r="40" fill="#4D7C0F"></circle>
+
+  <!-- Mancha 4 - Neutra -->
+  <circle cx="210" cy="260" r="40" fill="#E8E2DA"></circle>
+
+</svg>

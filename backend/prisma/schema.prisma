@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  paints Paint[]
+
+  @@map("users")
+}
+
+model Paint {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  brand       String
+  reference   String?
+  name        String
+  isMix       Boolean  @default(false) @map("is_mix")
+  color       String?
+  notes       String?
+  inStock     Boolean  @default(true) @map("in_stock")
+  recipeJson  String?  @map("recipe_json")
+  aiMetadataJson String? @map("ai_metadata_json")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([brand])
+  @@index([isMix])
+  @@index([inStock])
+  @@map("paints")
+}
