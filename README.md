@@ -14,6 +14,7 @@ El proyecto está diseñado para ser simple, mantenible y portable, evitando sob
 Aplicación desplegada y funcionando en hosting compartido con cPanel.
 
 **URL video demo:** https://app.tupintacomoquieras.com/demo-player.html
+
 ---
 
 ## 📖 Descripción General
